@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fovとか</title>
+    <link href="styles/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main">
+      <div class="top">
+        <h2><a href="./index.html">Fovとか</a></h2>
+      </div>
+      <div class="box-1">
+        <label for="fov-field">Fov: </label>
+        <input type="number" id="fov-field" class="fov-field" value="90" min="0" max="180">
+        <br>
+        <input type="button" value="表示" onclick="set_fov(get_fov())">
+        <input type="button" value="リセット" onclick="reset_fov()">
+        <br>
+        <input type="button" value="計算" class="calc-fov" onclick="show_fov(get_fov())">
+        <p>4:3 fov: <br><span id="fov-normal" class="num-font-size"></span></p>
+        <p>16:9 fov: <br><span id="fov-wide" class="num-font-size"></span></p>
+      </div>
+      <div class="box-2">
+        <canvas id="fov-draw" class="fov-draw" width="480" height="360"></canvas> <!--480 360, 384 288-->
+      </div>
+      <div class="box-3">
+        <div class="form">
+          <input type="button" value="400" class="mouse-dpi" onclick="change_dpi(400)">
+          <input type="button" value="800" class="mouse-dpi" onclick="change_dpi(800)">
+          <input type="button" value="1600" class="mouse-dpi" onclick="change_dpi(1600)">
+          <input type="button" value="3200" class="mouse-dpi" onclick="change_dpi(3200)">
+          <br>
+          <label for="dpi-field">マウスのdpi: </label>
+          <input type="number" id="dpi-field" class="dpi-field" value="400" min="0" step="50">
+          <br>
+          <label for="sensField">マウス感度(Source/Quake): </label>
+          <input type="number" id="sens-field" class="sens-field" value="5" min="0" step="0.01">
+          <br>
+          <input type="button" value="計算" class="value-submit" onclick="calc_sens()">
+          <br>結果: <span id="calc-result" class="num-font-size"></span> cm/360度
+        </div>
+        <script src="./scripts/fovdraw.js" defer></script>
+      </div>
+      <div class="history">
+        <p>2023 12/6 更新</p>
+      </div>
+    </div>
+  </body>
+</html>
