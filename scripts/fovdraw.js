@@ -141,7 +141,7 @@ function draw_face(ctx, array, center) {
     ctx.translate(-center.x, -center.y);
 }
 
-window.onload = draw_fov(fov_default);
+window.onload = show_fov(fov_default);
 
 
 function draw_fov(fov) {
@@ -152,8 +152,6 @@ function draw_fov(fov) {
     };
     const ctx = canvasfov.getContext('2d');
     const d = ((canvasfov.width / 2) / Math.tan((fov / 2) * Math.PI / 180));
-
-    show_fov(fov);
 
     ctx.beginPath();
     ctx.fillStyle = 'lightslategray'; /*lightsteelblue*/
@@ -166,7 +164,7 @@ function draw_fov(fov) {
 }
 
 
-function show_fov(fov) {
+function set_fov(fov) {
     const wide_fov = 2 * Math.atan((4 / 3) * Math.tan((fov / 2) * Math.PI / 180)) * 180 / Math.PI;
 
     document.getElementById("fov-normal").textContent = fov;
@@ -175,7 +173,10 @@ function show_fov(fov) {
 
 function get_fov() { return document.getElementById("fov-field").value; }
 
-function set_fov(fov) { draw_fov(fov); }
+function show_fov(fov) {
+    set_fov(fov);
+    draw_fov(fov);
+}
 
 function reset_fov() {
     var fov_text = document.getElementById("fov-field");
