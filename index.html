@@ -14,10 +14,10 @@
         <label for="fov-field">Fov: </label>
         <input type="number" id="fov-field" class="fov-field" value="90" min="0" max="180">
         <br>
-        <input type="button" value="表示" onclick="set_fov(get_fov())">
+        <input type="button" value="表示" onclick="show_fov(get_fov())">
         <input type="button" value="リセット" onclick="reset_fov()">
         <br>
-        <input type="button" value="計算" class="calc-fov" onclick="show_fov(get_fov())">
+        <input type="button" value="計算" class="calc-fov" onclick="set_fov(get_fov())">
         <p>4:3 fov: <br><span id="fov-normal" class="num-font-size"></span></p>
         <p>16:9 fov: <br><span id="fov-wide" class="num-font-size"></span></p>
       </div>
